@@ -9,7 +9,18 @@ get_libraries <- function(filenames_list) {
   })
 }
 
-libraries_used=c("devtools","shiny","knitr","graphics","grDevices","xtable")
+# installs all necessary libraries from CRAN
+get_libraries <- function(filenames_list) { 
+  lapply(filenames_list,function(thelibrary){    
+    if (do.call(require,list(thelibrary)) == FALSE) 
+      do.call(install.packages,list(thelibrary)) 
+    do.call(library,list(thelibrary))
+  })
+}
+
+libraries_used=c("devtools","knitr","graphics","grDevices","xtable","pryr",
+                 "Hmisc","vegan","fpc","GPArotation","FactoMineR","cluster",
+                 "psych","stringr","googleVis", "png","ggplot2","googleVis", "gridExtra", "shiny")
 get_libraries(libraries_used)
 
 if (require(slidifyLibraries) == FALSE) 
