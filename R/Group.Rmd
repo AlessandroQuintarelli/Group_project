@@ -1,0 +1,26 @@
+---
+title: "group_project"
+output: html_document
+---
+
+What makes speed dating successful? What characteristics are found attractive when speed dating? In this dataset we explore:
+1.
+2.
+3.
+4.
+
+
+### Question 1: Characteristics of speed daters
+
+The first stage in understanding the data is to assess who is using speed dating 
+
+```{r eval = TRUE, echo=TRUE, error = FALSE, warning=FALSE,message=FALSE,results='asis'}
+source("Qn1.R")
+```
+
+
+### Question 2:
+We now move on to 
+### Question 3:
+### Question 4:
+

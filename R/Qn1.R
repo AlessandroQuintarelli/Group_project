@@ -1,0 +1,15 @@
+library("sjPlot")
+library("ggplot2")
+library("reshape2")
+library("dplyr")
+library("grid")
+library("gridExtra")
+library("lme4")
+library("LMERConvenienceFunctions")
+library("MCMCglmm")
+library(tidyr)
+library(plyr)
+
+source("./Source/theme_darrel.R")
+
+d <- read.csv("./Data/SpeedDatingData.csv")
