@@ -1,0 +1,132 @@
+---
+title: "Insead Big Data Class- Speed dating"
+output: html_document
+Authors: Judith Finegold, Kacper Ostrowski, Ulf Nore, Maciej Piotrowicz
+---
+
+
+```{r echo=FALSE, eval=FALSE, tidy=TRUE}
+setwd("/Users/Judy1/Documents/Insead/P3/BDA/Speeddating")
+list.files()
+```
+
+# Introduction
+
+Speed dating is becoming an increasingly popular form of dating. We downloaded speed dating data from experiments conducted by Raymond Fisman, et al. (2006) conducted on students at Columbia University. Students were asked to score characteristics most important to them for a future date, as well as to score each person they speed dated and finally give a yes or a no to seeing the other person again on a regular date.
+
+We addressed the following questions:
+<br>
+•  Question 1: What do men and women look for in a date?
+<br>
+•	Question 2: How much do you enjoy your date depending on your initial preferences and actual race of the speed dating partner
+<br>
+•	Question 3: How much do you enjoy your date depending on if your date is the same race as you?
+<br>
+•	Question 4: How much do you enjoy your date depending on your race and race of the speed dating partner
+
+### Investigating the data
+
+```{r echo=FALSE, eval=TRUE, tidy=TRUE}
+d <- read.csv("./Data/Speed.csv", sep=",", dec=".")
+d=data.matrix(d)
+```
+<br>
+
+Data is collected by survying `nrow(d)` participants of speed dating events. Informaiton is then recoded into `ncol(d)` variables.  
+
+The table below shows data from the first 20 respondents:
+<br>
+
+```{r echo=FALSE, message=FALSE, prompt=FALSE, results='asis'}
+show_data = data.frame(round(d,2))[1:20,]
+show_data$Variables = rownames(show_data)
+library(googleVis)
+m1<-gvisTable(show_data,options=list(showRowNumber=TRUE,width=1220, height=min(400,27*(nrow(show_data)+1)),allowHTML=TRUE,page='disable'))
+print(m1,'chart')
+```
+
+###Question 1: What do men and women look for in a date?
+
+
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig.height=4,fig.width= 6, fig=TRUE}
+source("Qn1.R")
+p_gender 
+```
+
+Key findings
+<br>
+•  In general importance of different attributes is similar for both sexes
+<br>
+•  Men put slightly greater weight on finding an attractive and fun partner
+<br>
+•	Women are slightly more interested than men in finding an ambitious partner, intelligent partner who is sincere
+<br>
+
+###Question 2: How much do you enjoy your date depending on your initial preferences and actual race of the speed dating partner
+<br>
+
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig.height=4,fig.width= 6, fig=TRUE}
+source("SpeedDatingUlf.R")
+Plot1
+```
+
+Key findings
+<br>
+• For people with moderate preferences on the race of date (scores 1-6) there is no significant difference in satisfaction from date regardless if they date same or different race
+<br>
+• For people with extreme preferences on date race, the fact of impacts significantly the satisfaction
+<br>
+  - People with high preference on dating same race (score 7-10) enjoy dating person from same race much more
+<br>
+  -	People with very low preference on dating same race (score 0) enjoy dating people from different race much more
+<br>
+
+###Question 3: How much do you enjoy your date depending on if your date is the same race as you?
+
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig.height=4,fig.width= 6, fig=TRUE}
+source("SpeedDatingUlf.R")
+Plot2
+```
+
+Key findings
+<br>
+•  There was a significant difference in satisfaction from speed dating between races 
+<br>
+-	Maximum satisfaction from those that self report having Black heritage
+<br>
+-	Minimum satisfactiob from those that self report having Asian heritage
+<br>
+•	All races prefer dating people from the same race, but the race of the date significantly impacts satisfaction for some races and has limited impact on others
+<br>
+-	Practical indifference in dating from the same or different race in those that self report having White or Asian heritage
+<br>
+-  Significantly favour dating the same race in those that self report having Black or Latino heritage
+<br>
+
+###Question 4: How much do you enjoy your date depending on your race and race of the speed dating partner
+
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig.height=4,fig.width= 6, fig=TRUE}
+source("SpeedDatingUlf.R")
+Plot3
+```
+
+<br>
+Key findings
+<br>
+•  Significance of race in dating
+<br>
+-	People from Asian heritage relatively indifferent to the race of their partner (2 points range)
+<br>
+-	Race of partner matters a lot for those of Latino heritage (5 points range)
+<br>
+-	People from White and Black heritage have satisfaction moderately affected by race of partner
+<br>
+<br>
+•	Race preferences in dating
+<br>
+-	People from Black and Latino heritage prefer to date their own race vs. any different race
+<br>
+-	Those of White heritage prefer dating people of Latino heritage over their own race
+<br>
+-	People of Asian heritage prefer dating their own race and those of Latino heritage over those of Black and White heritage
+
