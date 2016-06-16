@@ -12,7 +12,7 @@ list.files()
 
 # Introduction
 
-Speed dating is becoming an increasingly popular form of dating. We downloaded speed dating data from experiments conducted by Raymond Fisman, et al. (2006) conducted on students at Columbia University. Students were asked to score characteristics most important to them for a future date, as well as to score each person they speed dated and finally give a yes or a no to seeing the other person again on a regular date.
+Speed dating is becoming an increasingly popular form of dating. We downloaded speed dating data from experiments conducted by Raymond Fisman, et al. (2006) conducted on 8378 students at Columbia University. Students were asked to score characteristics most important to them for a future date, as well as to score each person they speed dated and finally give a yes or a no to seeing the other person again on a regular date.
 
 We addressed the following questions:
 <br>
@@ -32,7 +32,7 @@ d=data.matrix(d)
 ```
 <br>
 
-Data is collected by survying `nrow(d)` participants of speed dating events. Informaiton is then recoded into `ncol(d)` variables.  
+Data is collected by survying `nrow(d)` participants of speed dating events. Information is then recoded into `ncol(d)` variables.  
 
 The table below shows data from the first 20 respondents:
 <br>
@@ -44,6 +44,16 @@ library(googleVis)
 m1<-gvisTable(show_data,options=list(showRowNumber=TRUE,width=1220, height=min(400,27*(nrow(show_data)+1)),allowHTML=TRUE,page='disable'))
 print(m1,'chart')
 ```
+
+<hr>
+We then plotted a histogram to show the age of the participants in the speed dating experiment:
+
+<hr>
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig.height=4,fig.width= 6, fig=TRUE}
+source("Qn1.R")
+p_age 
+```
+
 
 ###Question 1: What do men and women look for in a date?
 

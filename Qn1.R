@@ -40,3 +40,13 @@ p_gender <- ggplot(aes(x=Characteristic), data=d_what)+
   coord_cartesian(ylim = c(0, 100))+
   scale_x_discrete(labels=c("Attractive", "Sincere", "Fun", "Ambitious", "Shared Interests", "Intelligent"))
 
+p_age <- ggplot(aes(x=d$age_o,), data=d)+
+  geom_histogram()+
+  theme_darrel()+
+  coord_cartesian(xlim = c(0, 60))+
+  scale_y_continuous("Count")+
+  scale_x_continuous("Age (years)")
+
+
+
+
