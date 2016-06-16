@@ -47,6 +47,10 @@ p_age <- ggplot(aes(x=d$age_o,), data=d)+
   scale_y_continuous("Count")+
   scale_x_continuous("Age (years)")
 
-
-
-
+p_race <- ggplot(aes(x=d$race,), data=d)+
+  geom_histogram()+
+  theme_darrel()+
+  coord_cartesian(ylim = c(0, 5000))+
+  scale_y_continuous("Count")+
+  scale_x_discrete(name= "Race", breaks=c("1", "2", "3", "4", "5", "6", "NA"),
+                 labels=c("Black", "White European", "Latino", "Asian", "Native American", "Other", "Not recorded"))

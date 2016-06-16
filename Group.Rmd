@@ -75,6 +75,15 @@ Key findings
 ###Question 2: How much do you enjoy your date depending on your initial preferences and actual race of the speed dating partner
 <br>
 
+<br>
+```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig.height=4,fig.width= 6, fig=TRUE}
+source("Qn1.R")
+p_race 
+```
+
+This histogram shows the self reported race of each participant in the speed dating experiment
+<br>
+
 ```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig.height=4,fig.width= 6, fig=TRUE}
 source("SpeedDatingUlf.R")
 Plot1
